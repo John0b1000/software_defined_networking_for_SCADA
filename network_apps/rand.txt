@@ -1,0 +1,37 @@
+'''
+api_url = "https://localhost"
+#uri = "/configuration/settings.json"
+#uri1 = "/api/default/operational/links"
+uri1 = "/api/default/config/communicationServiceTypes"
+uri = "/identity/connect/token"
+headers = {"Content-Type":"application/x-www-form-urlencoded"}
+body = {"grant_type":"password", "username":"admin", "password":"Powerlab.1", "acr_values":"role:PermissionLevel3", "client_secret":"Rest Interface", "scope":"Rest", "client_id":"password-client", "state":0}
+addr = api_url + uri
+addr1 = api_url + uri1
+response = requests.post(addr, data=body, headers=headers, verify=False)
+token = response.json()
+token = token["access_token"]
+headers1 = {"Authorization":f"Bearer {token}"}
+response = requests.get(addr1, headers=headers1, verify=False)
+print(response)
+print(response.json())
+'''
+
+'''
+api_url = "https://localhost"
+uri1 = "/api/default/config/logicalConnections"
+uri = "/identity/connect/token"
+headers = {"Content-Type":"application/x-www-form-urlencoded"}
+body = {"grant_type":"password", "username":"admin", "password":"Powerlab.1", "acr_values":"role:PermissionLevel3", "client_secret":"Rest Interface", "scope":"Rest", "client_id":"password-client", "state":0}
+addr = api_url + uri
+addr1 = api_url + uri1
+response = requests.post(addr, data=body, headers=headers, verify=False)
+print(response)
+print(response.json())
+token = response.json()
+token = token["access_token"]
+headers1 = {"Authorization":f"Bearer {token}"}
+response = requests.get(addr1, headers=headers1, verify=False)
+print(response)
+print(response.json())
+'''
